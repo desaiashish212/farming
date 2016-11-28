@@ -1,3 +1,7 @@
+<?php 
+	$query = "select * from sub_admin";
+	$row = $this->db->query($query)->result_array();
+?>
 <!-- Datatables -->
     <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -36,26 +40,27 @@
                         <tr>
                           <th><input type="checkbox" id="check-all" class="flat"></th>
                           <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
-                          <th>Start date</th>
-                          <th>Salary</th>
+                          <th>Email</th>
+                          <th>Mobile</th>
+                          <th>Branch Name</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
 
 
                       <tbody>
                         <tr>
+                        <?php foreach ($row as $val){?> 
                           <td><input type="checkbox" class="flat" name="table_records"></td>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
+                          <td><?php echo $val['name']?></td>
+                          <td><?php echo $val['email']?></td>
+                          <td><?php echo $val['mobile']?></td>
+                          <td><?php echo $val['branch_name']?></td>
+                          <th><button class="btn btn-success">Edit</button></th>
+                          <th><button class="btn btn-danger">Delete</button></th>
                         </tr>
-                        
+                        <?php }?>
                       </tbody>
                     </table>
                   </div>

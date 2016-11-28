@@ -30,7 +30,6 @@
       }
       
       public function add_branch_admin($data){
-      	 
       	//	$query = "insert into branch values('$data['name']','$data['address']')";
       	return $this->db->insert('sub_admin',$data);
       	 
