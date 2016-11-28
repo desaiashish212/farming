@@ -41,14 +41,11 @@
 				
 			if ($task=='create'){
 				
-				$a= $this->input->post('branch');
-				exit();
-				
-				$data['branch_name']= $this->input->post('branch');
 				$data['name']= $this->input->post('name');
 				$data['email']= $this->input->post('email');
 				$data['password']= $this->input->post('password');
 				$data['mobile']= $this->input->post('mobile');
+				$data['branch_name']= $this->input->post('branch');
 				
 				$status = $this->Basic_model->add_branch_admin($data);
 				if ($status != null){

@@ -1,8 +1,8 @@
-<<?php
+<?php
     /**
      *
      */
-    class Basic_model extends CI_Controller
+    class Basic_model extends CI_Model
     {
 
       function index()
@@ -15,18 +15,17 @@
         $email = $data['email'];
         $password = $data['password'];
 
-        return $this->db->get_where('admin',$data)->num_rows();
-//print_r($status) ;
-//die();
-        
-
-
+		$query = "SELECT * FROM admin WHERE email = '$email' AND password = '$password'";
+		$this->db->query($query);
+		return $this->db->affected_rows();
       }
       
       public function add_branch($data){
       	
       //	$query = "insert into branch values('$data['name']','$data['address']')";
-      return $this->db->insert('branch',$data);
+		print_r($data);
+      	die();
+      	return $this->db->insert('branch',$data);
       	
       }
       
